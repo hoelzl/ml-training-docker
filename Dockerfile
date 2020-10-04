@@ -41,9 +41,12 @@ EXPOSE 443/tcp
 ENV TINI_VERSION v0.6.0
 ADD https://github.com/krallin/tini/releases/download/${TINI_VERSION}/tini /usr/bin/tini
 RUN chmod +x /usr/bin/tini
+RUN conda init --all
+RUN  echo y | jupyter kernelspec uninstall python3 \
+    && python -m ipykernel install --user --name base --display-name "Python (base)"
 ENTRYPOINT ["/usr/bin/tini", "--"]
 
 CMD ["jupyter", "notebook", "--no-browser", "--ip=0.0.0.0"]
 
 LABEL maintainer="Matthias Hölzl <tc@xantira.com>"
-LABEL version="0.5"
+LABEL version="0.6"

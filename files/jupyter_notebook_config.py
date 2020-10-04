@@ -301,7 +301,7 @@ c.NotebookApp.password = u'argon2:$argon2id$v=19$m=10240,t=10,p=8$BBchSWdhEZ5K93
 
 ## The port the notebook server will listen on (env: JUPYTER_PORT).
 #c.NotebookApp.port = 8888
-c.NotebookApp.port = 8888
+c.NotebookApp.port = 443
 
 ## The number of additional ports to try if the specified port is not available
 #  (env: JUPYTER_PORT_RETRIES).

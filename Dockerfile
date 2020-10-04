@@ -20,6 +20,8 @@ RUN bash /root/miniconda.sh -bfp /usr/local \
 
 ENV PATH /opt/conda/bin:$PATH
 
+RUN pip install datasets tokenizers trains trains-agent
+
 # ARG APT_KEY_DONT_WARN_ON_DANGEROUS_USAGE=1
 
 # RUN distribution=$(. /etc/os-release;echo $ID$VERSION_ID) \
@@ -44,4 +46,4 @@ ENTRYPOINT ["/usr/bin/tini", "--"]
 CMD ["jupyter", "notebook", "--no-browser", "--ip=0.0.0.0"]
 
 LABEL maintainer="Matthias Hölzl <tc@xantira.com>"
-LABEL version="0.4"
+LABEL version="0.5"

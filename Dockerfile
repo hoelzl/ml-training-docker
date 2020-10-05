@@ -4,7 +4,7 @@ ARG DEBIAN_FRONTEND=noninteractive
 
 ADD files/jupyter_notebook_config.py /root/.jupyter/
 ADD files/miniconda.sh files/conda-env.list files/trains.conf files/mycert.pem files/mykey.key /root/
-ADD files/pkgs/ /root/pkgs/
+# ADD files/pkgs/ /root/pkgs/
 
 RUN ln -s /usr/share/zoneinfo/Europe/Berlin /etc/localtime \
     && apt-get -qq update \
@@ -14,7 +14,7 @@ RUN ln -s /usr/share/zoneinfo/Europe/Berlin /etc/localtime \
 
 RUN bash /root/miniconda.sh -bfp /usr/local \
     && conda update conda \
-    && mkdir -p /root/pkgs \
+#    && mkdir -p /root/pkgs \
     && conda install -c fastai -c pytorch -c conda-forge -y --file=/root/conda-env.list \
     && conda clean --all --yes \
     && rm -rf /root/miniconda.sh /root/conda-env.list /root/pkgs \

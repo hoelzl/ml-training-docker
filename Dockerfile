@@ -13,7 +13,7 @@ RUN ln -s /usr/share/zoneinfo/Europe/Berlin /etc/localtime \
 
 RUN bash /root/miniconda.sh -bfp /usr/local \
     && conda update conda \
-    && conda install --offline -y -c /root/pkgs/ --file=/root/conda-env.list \
+    && conda install -y -c /root/pkgs/ --file=/root/conda-env.list \
     && conda clean --all --yes \
     && rm -rf /root/miniconda.sh /root/conda-env.list /root/pkgs \
     && mkdir -p /root/python
@@ -49,4 +49,4 @@ ENTRYPOINT ["/usr/bin/tini", "--"]
 CMD ["jupyter", "notebook", "--no-browser", "--ip=0.0.0.0"]
 
 LABEL maintainer="Matthias Hölzl <tc@xantira.com>"
-LABEL version="0.6"
+LABEL version="0.7"

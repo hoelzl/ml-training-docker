@@ -1,5 +1,4 @@
 /files/pkgs/*
-/files/conda-env.list
+!/files/pkgs/.gitkeep
 /files/mycert.pem
 /files/mykey.key
-/scripts/copy-pkgs.sh

@@ -23,17 +23,17 @@ ENV PATH /opt/conda/bin:$PATH
 
 RUN pip install datasets tokenizers trains trains-agent
 
-# ARG APT_KEY_DONT_WARN_ON_DANGEROUS_USAGE=1
+ARG APT_KEY_DONT_WARN_ON_DANGEROUS_USAGE=1
 
-# RUN distribution=$(. /etc/os-release;echo $ID$VERSION_ID) \
-#     && wget -q https://nvidia.github.io/nvidia-docker/gpgkey \
-#     && apt-key add gpgkey \
-#     && rm -f gpgkey \
-#     && curl -s -L https://nvidia.github.io/nvidia-docker/$distribution/nvidia-docker.list > /etc/apt/sources.list.d/nvidia-docker.list \
-#     && apt-get -qq update \
-#     && apt-get -qq upgrade \
-#     && apt-get -qq -y install nvidia-docker2 \
-#     && rm -rf /var/lib/apt/lists/* /var/log/dpkg.log
+RUN distribution=$(. /etc/os-release;echo $ID$VERSION_ID) \
+    && wget -q https://nvidia.github.io/nvidia-docker/gpgkey \
+    && apt-key add gpgkey \
+    && rm -f gpgkey \
+    && curl -s -L https://nvidia.github.io/nvidia-docker/$distribution/nvidia-docker.list > /etc/apt/sources.list.d/nvidia-docker.list \
+    && apt-get -qq update \
+    && apt-get -qq upgrade \
+    && apt-get -qq -y install nvidia-docker2 \
+    && rm -rf /var/lib/apt/lists/* /var/log/dpkg.log
 
 VOLUME /root/python
 WORKDIR /root/python

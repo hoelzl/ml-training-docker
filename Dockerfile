@@ -13,7 +13,8 @@ RUN ln -s /usr/share/zoneinfo/Europe/Berlin /etc/localtime \
 
 RUN bash /root/miniconda.sh -bfp /usr/local \
     && conda update conda \
-    && conda install -y -c /root/pkgs/ --file=/root/conda-env.list \
+    && mkdir -p /root/pkgs \
+    && conda install -y --file=/root/conda-env.list \
     && conda clean --all --yes \
     && rm -rf /root/miniconda.sh /root/conda-env.list /root/pkgs \
     && mkdir -p /root/python

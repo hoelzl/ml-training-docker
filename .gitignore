@@ -1,4 +1,2 @@
 /files/pkgs/*
 !/files/pkgs/.gitkeep
-/files/mycert.pem
-/files/mykey.key
